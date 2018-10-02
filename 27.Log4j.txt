@@ -1,0 +1,100 @@
+Log 4j
+
+Getting Normal Report
+
+log 4j =version 1.2.17 jar file
+
+get properties file from github//bprem its common for all program
+
+create 2 pakage
+
+1	cons1
+2	resoures----put property file in resources package--new--file save by name.properties  [CREATE PACKAGE "resources" for all log 4j]
+
+Keyword:
+ In main we use this keyword
+	
+		PropertyConfigurator.configure("C:\\Users\\Mypc\\workspace\\cons\\src\\resources\\log4j.properties");
+		Logger log =Logger.getLogger(cons12.class);
+		log.info("*******Success***********");
+
+--------------------------------------------------------------------
+
+program 
+
+
+package cons1;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.testng.annotations.Test;
+
+public class cons12 {
+@Test
+	public void log() {
+		// TODO Auto-generated method stub
+		PropertyConfigurator.configure("C:\\Users\\Mypc\\workspace\\cons\\src\\resources\\log4j.properties");
+		Logger log =Logger.getLogger(cons12.class);
+		cons32 hhsh=new cons32("kalai",25);
+		hhsh.method1();
+		log.info("*******Success***********");
+	}
+
+}
+
+
+------------------------------
+package cons1;
+
+import org.apache.log4j.Logger;
+
+
+
+public class cons32 {
+String Name;
+int age;
+
+public cons32(String n,int a)
+{
+	this.Name=n;
+	this.age=a;
+}
+public void method1()
+{
+
+	System.out.println(Name);
+	System.out.println(age);
+}
+
+}
+
+------------------------------output in xml because its in testng------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="cons1.cons12"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+------------------------------------------getting normal log report-----------------------
+
+refresh the project
+
+
+testlog.log one property file create automatically in test output
+
+when u c the log its having all activity list
+
+
+
+
+
+
+
+
+
