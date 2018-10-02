@@ -25,4 +25,74 @@ git push
 
 
 example:
+Mypc@Mypc-PC MINGW64 ~
+$ cd d:
+
+Mypc@Mypc-PC MINGW64 /d (master)
+$ cd D:Seliniumclassnotes
+
+Mypc@Mypc-PC MINGW64 /d/Seliniumclassnotes (master)
+$ git init
+Initialized empty Git repository in D:/Seliniumclassnotes/.git/
+
+Mypc@Mypc-PC MINGW64 /d/Seliniumclassnotes (master)
+$ git add *
+
+Mypc@Mypc-PC MINGW64 /d/Seliniumclassnotes (master)
+$ git commit -m "Selenium Notes"
+[master (root-commit) a75863f] Selenium Notes
+ 32 files changed, 2364 insertions(+)
+ create mode 100644 1.Selenium IDE Intro.txt
+ create mode 100644 10.Alert msg Handlinng.txt
+ create mode 100644 11.Scrolling.txt
+ create mode 100644 12.Frames.txt
+ create mode 100644 13.Exceptiional Handling.txt
+ create mode 100644 14.Geeko Driver.txt
+ create mode 100644 15.Window Handling.txt
+ create mode 100644 16.Wait.txt
+ create mode 100644 17.Different Browser.txt
+ create mode 100644 18.File upload_Robot.txt
+ create mode 100644 19.0 TestNG intro.txt
+ create mode 100644 19.1 Xml.txt
+ create mode 100644 19.2 Parameter testng xml.txt
+ create mode 100644 2.locator Selinium IDE.txt
+ create mode 100644 20 AutoIT.txt
+ create mode 100644 21.Maven.txt
+ create mode 100644 22.Screen Shot.txt
+ create mode 100644 23.Data Provider.txt
+ create mode 100644 24.ExtentReport.txt
+ create mode 100644 25.Framwork data driven.txt
+ create mode 100644 26.GIT.txt
+ create mode 100644 3.web Driver intro_locator example.txt
+ create mode 100644 5.webdriver dropdown_select example.txt
+ create mode 100644 6.Mouse hover.txt
+ create mode 100644 7.0 selinium2_chrome browser_webdriver.txt
+ create mode 100644 7.1 Select_dropdata_like_filter.txt
+ create mode 100644 7.2 List Radio and Checkbox.txt
+ create mode 100644 7.3 Calender.txt
+ create mode 100644 8 Project till 1 to 7.2 topics_Orange HRM-PIM.txt
+ create mode 100644 9.Drag and Drop.txt
+ create mode 100644 Slinium Document.docx
+ create mode 100644 kalai frame output.html
+
+Mypc@Mypc-PC MINGW64 /d/Seliniumclassnotes (master)
+$ git remote add origin https://github.com/Kalaig57/Selenium.git
+
+Mypc@Mypc-PC MINGW64 /d/Seliniumclassnotes (master)
+$ git push -u origin master
+Username for 'https://github.com': Kalaig57
+Enumerating objects: 34, done.
+Counting objects: 100% (34/34), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (34/34), done.
+Writing objects: 100% (34/34), 191.74 KiB | 4.92 MiB/s, done.
+Total 34 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/Kalaig57/Selenium/pull/new/master
+remote:
+To https://github.com/Kalaig57/Selenium.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
 
