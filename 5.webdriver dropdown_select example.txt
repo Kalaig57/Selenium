@@ -1,0 +1,94 @@
+-----Web Driver using all locator:example for Dropdown/select    ------
+
+Sytax:WebElement z1= df.findElement(By.name("fromPort"));
+Select z2=new Select(z1);
+z2.selectByIndex(3);
+
+
+or
+
+WebElement l= df.findElement(By.name("country"));
+		Select k=new Select(l);
+		k.selectByValue("92")
+
+
+
+
+--Method 1:--
+
+package driver1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class webdrivercss {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver df= new FirefoxDriver();
+		df.get("http://newtours.demoaut.com/");
+		WebElement a= df.findElement(By.linkText("REGISTER"));
+		a.click();
+		WebElement aa= df.findElement(By.name("firstName"));
+		aa.sendKeys("Kalaimagal");
+		WebElement b= df.findElement(By.name("lastName"));
+		b.sendKeys("Govindaraj");
+		WebElement c= df.findElement(By.xpath("//input[@name='phone']"));
+		c.sendKeys("9789565332");
+		WebElement d= df.findElement(By.xpath("//input[@id='userName']"));
+		d.sendKeys("Kalai.g57@gmail.com");
+		WebElement e= df.findElement(By.cssSelector("input[name='address1']"));
+		e.sendKeys("8/7,15th Street");
+		WebElement f= df.findElement(By.cssSelector("input[name='address2']"));
+		f.sendKeys("Tansi Nagar");
+		WebElement g= df.findElement(By.cssSelector("input[name='city']"));
+		g.sendKeys("Chennai");
+		WebElement i= df.findElement(By.cssSelector("input[name='state']"));
+		i.sendKeys("Tamilnadu");
+		WebElement j= df.findElement(By.cssSelector("input[name='postalCode']"));
+		j.sendKeys("600042");
+		WebElement l= df.findElement(By.name("country"));
+		Select k=new Select(l);
+		k.selectByValue("92");
+		Thread.sleep(2000);
+		WebElement m= df.findElement(By.cssSelector("#email"));
+		m.sendKeys("Kalaimagal");
+		WebElement n= df.findElement(By.xpath("//input[@name='password']"));
+		n.sendKeys("Kalai.g57@");
+		WebElement o= df.findElement(By.xpath("//input[@name='confirmPassword']"));
+		o.sendKeys("Kalai.g57@");
+		WebElement p= df.findElement(By.name("register"));
+		p.click();
+		WebElement r= df.findElement(By.linkText("sign-in"));
+		r.click();
+		WebElement s= df.findElement(By.name("userName"));
+		s.sendKeys("123");
+		WebElement t= df.findElement(By.name("password"));
+		t.sendKeys("123");
+		WebElement z= df.findElement(By.name("login"));
+		z.click();
+		WebElement zz= df.findElement(By.name("passCount"));
+		Select zzz=new Select(zz);
+		zzz.selectByValue("2");
+		WebElement z1= df.findElement(By.name("fromPort"));
+		Select z2=new Select(z1);
+		z2.selectByIndex(3);
+---Method 2---
+
+/*WebDriver hj=new FirefoxDriver();
+		hj.get("https://demoqa.com/");
+		hj.findElement(By.linkText("Registration")).click();
+		Thread.sleep(2000);
+		hj.findElement(By.name("first_name")).sendKeys("kalai");
+		hj.findElement(By.name("last_name")).sendKeys("Govindaraj");
+		hj.findElement(By.xpath("//input[@name='phone_9']")).sendKeys("9789565332");
+		hj.findElement(By.cssSelector("input[id='username']")).sendKeys("Kalaimagal");
+		hj.findElement(By.cssSelector("input[name='e_mail']")).sendKeys("Kalai.g57@gmail.com");
+		hj.findElement(By.cssSelector("#description")).sendKeys("Test Engineer");
+		hj.findElement(By.cssSelector("input[name='password']")).sendKeys("Kalai.g57@");
+		hj.findElement(By.cssSelector("#confirm_password_password_2")).sendKeys("Kalai.g57@");*/
+		
+

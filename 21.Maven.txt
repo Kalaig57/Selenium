@@ -1,0 +1,250 @@
+Maven----
+Create--new project-->maven-->class without main 
+
+	It is used only in java Program
+
+	for running maven we need jdk package its not run on jre 
+	
+	Windows-->preference-->java-->installed jre-double click->Add-->cdrive--programfiles->java->jdk->select check box of jdk-->apply-->ok
+	Select JRE Syste Liberary-->workspace default--ok
+	
+	Maven testng program file does not have any jar file in pom only we add all jar file
+	
+	Its run by POM file
+	
+	By getting POM
+
+		Convert TestNG-XML-POM
+	POM having 
+		Dependencies,pomxml,Dependency hirarchy,Effective POM
+	   Dependencies:
+		Add the external jars like selenium java with verson
+		
+		when u click add button
+			Its shows select depencdency window 
+			
+			its having group id,artifact id,version everything getfrom mavenrepository search box tself it having some macro according the jars
+
+		for example: after clicking the latest version
+
+			ONE PROGRAM IS LIKE THIS
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-server</artifactId>
+    <version>3.14.0</version>
+</dependency>
+
+
+take it from this program copy and paste it to select dependency
+
+
+go to pom.xml it shows like this
+
+				
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BeseantTechnology.AutoIT</groupId>
+  <artifactId>AutoITProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+  	<dependency>
+  		<groupId>org.seleniumhq.selenium</groupId>
+  		<artifactId>selenium-java</artifactId>
+  		<version>2.53.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>6.14.3</version>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>de.openkeyword</groupId>
+  		<artifactId>autoit</artifactId>
+  		<version>0.1.11</version>
+  	</dependency>
+  </dependencies>
+</project>
+
+
+-----
+
+copy paste build anotation in pom.xml file it shows like this
+
+its from this link https://howtodoinjava.com/testng/how-to-execute-testng-tests-with-maven-build/
+take build data only from 3 program
+
+<build>
+        <!-- Source directory configuration -->
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14.1</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <!-- Compiler plugin configures the java version to be usedfor compiling
+                the code -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+after deleting sourceDirectory and<suiteXmlFile>suites-test-testng.xml</suiteXmlFile> paste this build in after verson on pom.xml 
+
+
+
+
+Example for maven
+
+
+package marven;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Autoitmarven {
+	WebDriver driver;
+	
+	@BeforeTest
+	public void Website()
+	{
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+		driver.manage().timeouts().implicitlyWait(90,TimeUnit.SECONDS);
+		driver.manage().window();
+	}
+	@Test(priority=1)
+	@Parameters({"Ad","Pd"})
+	public void login(String Admin, String admin123 )
+	{
+	WebElement Username=driver.findElement(By.name("txtUsername"));
+	Username.sendKeys(Admin);
+	WebElement password=driver.findElement(By.name("txtPassword"));
+	password.sendKeys(admin123);
+	driver.findElement(By.id("btnLogin")).click();
+	}
+	@Test(priority=2)
+	public void PIM() throws IOException
+	{
+	WebElement pim=driver.findElement(By.linkText("PIM"));
+	Actions pim1=new Actions(driver);
+	pim1.moveToElement(pim).build().perform();
+	WebElement Addemployee=driver.findElement(By.linkText("Add Employee"));
+	Addemployee.click();
+	WebElement browse=driver.findElement(By.id("photofile"));
+	browse.click();	
+	Runtime.getRuntime().exec("C:\\Users\\Mypc\\Desktop\\ghh.exe");
+	}
+	@AfterTest
+	public void webpageClose()
+	{
+		driver.close();
+	}
+
+	
+}
+---Convert testng to xml---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+       <parameter name="Ad" value="Admin"/>
+  <parameter name="Pd" value="admin123"/>
+    <classes>
+      <class name="marven.Autoitmarven"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+-----convert xml to pom---
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>BeseantTechnology.AutoIT</groupId>
+  <artifactId>AutoITProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+        <!-- Source directory configuration -->
+        <plugins>
+            <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14.1</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <!-- Compiler plugin configures the java version to be usedfor compiling
+                the code -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.seleniumhq.selenium</groupId>
+  		<artifactId>selenium-java</artifactId>
+  		<version>2.53.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>6.14.3</version>
+  	</dependency>
+
+  	<dependency>
+  		<groupId>de.openkeyword</groupId>
+  		<artifactId>autoit</artifactId>
+  		<version>0.1.11</version>
+  	</dependency>
+  </dependencies>
+</project>
+
+
+-----run this file by mange build path2----for every changes we update the project in maven
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+Download AutoIT-->Version-->system bit wise download the AutoIT
+
+AutoIT:
+
+	AutoIT only used for inspect the windows handling not inspect the webpage
+	
+Need
+	AutoIT-->Install--Systembitwise
+
+inspection process:
+
+	C:\Program Files (x86)-->AutoIT3-->Au3Info_64 application
+
+Command process in Scite:
+
+Default Syntax
+
+	ControlFocus("title","text","class+instance")
+	ControlSetText("title","text","class+instance","path of jpg file")
+	ControlClick("title","text","Button1")
+
+
+
+Click:  C:\Program Files (x86)\AutoIt3\SciTE
+
+	ControlFocus("Open","","Edit1")
+	ControlSetText("Open","","Edit1","C:\Users\Mypc\Desktop\th.jpg")
+	ControlClick("Open","","Button1")
+
+
+Execution process:
+
+	C:\Program Files (x86)\AutoIt3\Aut2Exe-->systemwisebit select like autoitx64-->run script-->run as 64 bit script
+	
+	
+	for if u checking in autoit without java open the file upload--->shows one window-->click exec file now
+	
+	
+	source select-->normal file-->Convert to execute file
+	
+
+Java Program Wise:
+
+
+	package sss;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Taskscreenshot {
+	WebDriver driver;
+	@BeforeTest
+	public void prerequsite()
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+			driver=new ChromeDriver();
+			driver.get("http://demo.automationtesting.in/");
+			driver.manage().timeouts().implicitlyWait(270,TimeUnit.SECONDS);
+			
+		}
+	@Test
+	
+	public void login() throws IOException
+		{			
+			WebElement EmailID=driver.findElement(By.id("email"));
+			EmailID.sendKeys("Kalai.g57@gmail.com");
+			WebElement Click=driver.findElement(By.id("enterimg"));
+			Click.click();
+			WebElement browse=driver.findElement(By.id("imagesrc"));
+			browse.click();
+			Runtime.getRuntime().exec("C:\\Users\\Mypc\\Desktop\\fu.exe");
+		}
+
+	

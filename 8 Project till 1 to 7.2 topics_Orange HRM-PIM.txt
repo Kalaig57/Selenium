@@ -1,0 +1,148 @@
+package locator;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class Webdriver {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+		WebDriver gh=new ChromeDriver();
+		WebDriverWait we=new WebDriverWait(gh,180);
+		gh.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
+		gh.get("https://opensource-demo.orangehrmlive.com/");
+		WebElement g =gh.findElement(By.id("txtUsername"));
+		g.sendKeys("Admin");
+		WebElement gg =gh.findElement(By.id("txtPassword"));
+		gg.sendKeys("admin123");
+		WebElement gag =gh.findElement(By.id("btnLogin"));
+		gag.click();
+		WebElement rt= gh.findElement(By.linkText("PIM"));
+		Actions df=new Actions(gh);
+		df.moveToElement(rt).build().perform();
+		we.until(ExpectedConditions.visibilityOf(rt));
+		WebElement dfa= gh.findElement(By.id("menu_pim_addEmployee"));
+		we.until(ExpectedConditions.visibilityOf(dfa));
+		dfa.click();
+		WebElement dfaa= gh.findElement(By.xpath("//input[@id='firstName']"));
+		dfaa.sendKeys("RKalaiselvi");
+		WebElement ed= gh.findElement(By.xpath("//input[@id='lastName']"));
+		ed.sendKeys("Vinoth");
+		WebElement td= gh.findElement(By.id("employeeId"));
+		td.click();
+		td.clear();
+		td.sendKeys("17447");
+		WebElement tv= gh.findElement(By.id("chkLogin"));
+		tv.click();
+		WebElement tp= gh.findElement(By.id("user_name"));
+		tp.sendKeys("RKalaiselvi");
+		WebElement tpa= gh.findElement(By.id("user_password"));
+		tpa.sendKeys("Kalai.g57@");
+		WebElement tpaa= gh.findElement(By.id("re_password"));
+		tpaa.sendKeys("Kalai.g57@");
+		WebElement tpaas= gh.findElement(By.xpath("//select[@id='status']"));
+		Select gs=new Select(tpaas);
+		gs.selectByValue("Enabled");
+		WebElement tpaxa= gh.findElement(By.id("btnSave"));
+		tpaxa.click();
+		WebElement jda= gh.findElement(By.xpath("//input[@value='Edit']"));
+		jda.click();
+		WebElement ja= gh.findElement(By.xpath("//input[@id='personal_txtOtherID']"));
+		ja.sendKeys("BOJPE57812");
+		WebElement sja= gh.findElement(By.id("personal_txtLicenNo"));
+		sja.sendKeys("1234rs");
+		WebElement sjfa= gh.findElement(By.xpath("//input[@id='personal_txtLicExpDate']"));
+		sjfa.click();
+		List<WebElement>ds=gh.findElements(By.xpath(".//*[@id='ui-datepicker-div']/table/tbody/tr[4]/td[2]/a"));
+		for(WebElement ft:ds)
+		{
+			String Va=ft.getText();
+			System.out.println(Va);
+			if(Va.equalsIgnoreCase("18"))
+			{
+				ft.click();
+				
+			}
+		}
+		WebElement sjgfa= gh.findElement(By.xpath("//input[@id='personal_optGender_2']"));
+		sjgfa.click();
+		WebElement sfa= gh.findElement(By.xpath("//select[@id='personal_cmbMarital']"));
+		Select dd=new Select(sfa);
+		dd.selectByValue("Single");
+		WebElement sfah= gh.findElement(By.cssSelector("select[id='personal_cmbNation']"));
+		Select ddh=new Select(sfah);
+		ddh.selectByIndex(82);
+		WebElement sjsfa= gh.findElement(By.xpath("//input[@id='personal_DOB']"));
+		sjsfa.click();
+		WebElement jfa= gh.findElement(By.xpath("//select[@class='ui-datepicker-month']"));
+		Select rrr=new Select(jfa);
+		rrr.selectByValue("0");
+		WebElement jfha= gh.findElement(By.xpath("//select[@class='ui-datepicker-year']"));
+		Select rrrrr=new Select(jfha);
+		rrrrr.selectByValue("1993");
+		List<WebElement>skw= gh.findElements(By.xpath(".//*[@id='ui-datepicker-div']/table/tbody/tr/td/a"));
+		for(WebElement ftd:skw)
+		{
+			String Vfa=ftd.getText();
+			System.out.println(Vfa);
+			if(Vfa.equalsIgnoreCase("9"))
+			{
+				ftd.click();
+				
+			}
+		}
+		WebElement sjshhfa= gh.findElement(By.xpath("//input[@id='btnSave']"));
+		sjshhfa.click();
+		WebElement fa= gh.findElement(By.linkText("Job"));
+		fa.click();
+		WebElement fadd= gh.findElement(By.xpath("//input[@value='Edit']"));
+		we.until(ExpectedConditions.visibilityOf(fadd));
+		fadd.click();
+		WebElement fa1= gh.findElement(By.xpath("//select[@id='job_job_title']"));
+		Select ag=new Select(fa1);
+		ag.selectByValue("2");
+		WebElement fa11= gh.findElement(By.xpath("//select[@id='job_emp_status']"));
+		Select ag1=new Select(fa11);
+		ag1.selectByValue("3");
+		WebElement faaa11= gh.findElement(By.xpath("//select[@id='job_sub_unit']"));
+		Select aaag1=new Select(faaa11);
+		aaag1.selectByIndex(4);
+		WebElement fasdt= gh.findElement(By.xpath("//input[@id='job_joined_date']"));
+		we.until(ExpectedConditions.visibilityOf(fasdt));
+		fasdt.click();
+		WebElement fast= gh.findElement(By.xpath("//select[@class='ui-datepicker-month']"));
+		Select hjg=new Select(fast);
+		hjg.selectByValue("10");
+		WebElement fst= gh.findElement(By.xpath("//select[@class='ui-datepicker-year']"));
+		Select hg=new Select(fst);
+		hg.selectByValue("2014");
+		List<WebElement>wt=gh.findElements(By.xpath(".//*[@id='ui-datepicker-div']/table/tbody/tr[3]/td[1]/a"));
+		for(WebElement gggh:wt)
+		{
+		String ghh=gggh.getText();
+		System.out.println(ghh);
+		if(ghh.equalsIgnoreCase("10"))
+		{
+			gggh.click();
+			
+		}
+		}
+		WebElement fstk= gh.findElement(By.id("btnSave"));
+		fstk.click();
+		
+		}
+	
+}
+

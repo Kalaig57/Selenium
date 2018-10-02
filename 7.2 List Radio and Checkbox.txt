@@ -1,0 +1,46 @@
+Radio and Checkbox more than one use List:
+
+
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+public class radio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver jj=new FirefoxDriver();
+		jj.get("https://demoqa.com/registration/");
+		List<WebElement>ds=jj.findElements(By.xpath("//input[@type='radio']"));
+		for(WebElement ft:ds)
+		{
+			String Va=ft.getAttribute("value");
+			System.out.println(Va);
+			if(Va.equalsIgnoreCase("married"))
+			{
+				ft.click();
+				break;
+			}
+		}
+		List<WebElement>dss=jj.findElements(By.xpath("//input[@type='checkbox']"));
+		for(WebElement ft:dss)
+		{
+			String Vasz=ft.getAttribute("value");
+			System.out.println(Vasz);
+			if(Vasz.equalsIgnoreCase("cricket ")||Vasz.equalsIgnoreCase("reading"))
+			{
+				ft.click();
+				
+			}
+		}
+		
+		
+		}
+	}
+

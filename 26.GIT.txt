@@ -1,0 +1,28 @@
+GIT
+
+	GIT ---openSource---used for Store the data in git for public view 
+	GITHUB--its not a opensource--its also used for storeage purpose its private view
+	its connect folder and repocitory
+	
+
+Kewwords:
+	
+Signup page
+Create new repocitory
+linux command in git bash
+
+
+linux command: cd driverchange
+cd Folder name
+cd file name
+master file created in file and folder
+git status
+git init
+git add
+git commit
+git remote
+git push
+
+
+example:
+

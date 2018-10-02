@@ -1,0 +1,85 @@
+-------------------------------------------------------------------------Web Driver---------------------------------------------------------------------------
+Web Driver----java------ jar -----selinium webdriver standalone
+
+Selinuium-frame work
+
+
+Selinum jar 23.21 version for firefox
+project---build path--- conf build path--- library-add exterbal jar--download---open---apply ---ok
+
+
+Progra---java-----import jar file ---exe
+
+
+--------------------------------Example for Webdriver locators "sendkeys and click" using Single atrributes----------------------------------------------------------------------
+
+----Normal---- example for Locator
+
+package driver1;
+
+import java.sql.Driver;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Jar1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver=new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com/");
+		driver.findElement(By.name("userName")).sendKeys("123");
+		driver.findElement(By.name("password")).sendKeys("123");
+		driver.findElement(By.name("login")).click();
+		driver.findElement(By.linkText("SIGN-OFF")).click();
+		
+		}
+
+
+}
+
+ ------Finding xpath----- example same website
+
+
+package driver1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Webdriverxpath {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver jj=new FirefoxDriver();
+		jj.get("http://newtours.demoaut.com/");
+		jj.findElement(By.xpath("//input[@name='userName']")).sendKeys("123");
+		jj.findElement(By.xpath("//input[@name='password']")).sendKeys("123");
+		jj.findElement(By.xpath("//input[@name='login']")).click();
+		jj.findElement(By.linkText("SIGN-OFF")).click();
+	}
+
+}
+
+
+ ------Finding css----- example same website
+
+
+package driver1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class webdrivercss {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver jk=new FirefoxDriver();
+		jk.get("http://newtours.demoaut.com/");
+		jk.findElement(By.cssSelector("input[type='text']")).sendKeys("123");
+	}
+}
+---------------------------------------------------------------------------------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------------------------------------------------------------------------------------------------------
+

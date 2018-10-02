@@ -1,0 +1,195 @@
+xml
+	run the TestNG program by xml itself
+>
+Right click the package file-->TestNG-->convert TestNG-->show 1 popup-->finish-->xml file created in package
+
+
+  For run the a class program we have to change the class name like "package.classname"
+
+
+
+program for single class convert into xml----
+
+package testngintoxml;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Check {
+	WebDriver driver1;
+	@BeforeTest
+	public void proceeding()
+	{
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+		driver1=new ChromeDriver();
+		driver1.get("http://demo.guru99.com/v4/");
+		driver1.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		driver1.manage().window();
+	}
+	@Test
+	public void login()
+	{
+		WebElement gh=driver1.findElement(By.name("btnLogin"));
+		gh.click();
+		Alert alertcheck=driver1.switchTo().alert();
+		String alert=driver1.switchTo().alert().getText();
+		System.out.println(alert);
+		alertcheck.accept();
+	}
+	@AfterTest
+	public void driverlose()
+	{
+		driver1.close();
+	}
+
+	}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testngintoxml.Converttestngintoxml"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
+for calling next class we use like this----
+
+Right click on package --testng--convertestng---finish--xml created
+
+
+
+
+
+program for multiple class convert into single xml:
+
+
+package testngintoxml;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Check {
+	WebDriver driver1;
+	@BeforeTest
+	public void proceeding()
+	{
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+		driver1=new ChromeDriver();
+		driver1.get("http://demo.guru99.com/v4/");
+		driver1.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		driver1.manage().window();
+	}
+	@Test
+	public void login()
+	{
+		WebElement gh=driver1.findElement(By.name("btnLogin"));
+		gh.click();
+		Alert alertcheck=driver1.switchTo().alert();
+		String alert=driver1.switchTo().alert().getText();
+		System.out.println(alert);
+		alertcheck.accept();
+	}
+	@AfterTest
+	public void driverlose()
+	{
+		driver1.close();
+	}
+
+	}
+
+
+
+
+
+
+package testngintoxml;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Converttestngintoxml {
+	WebDriver driver;
+	@BeforeTest
+	public void prerequsite()
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+			driver=new ChromeDriver();
+			driver.get("https://opensource-demo.orangehrmlive.com/");
+			driver.manage().timeouts().implicitlyWait(270,TimeUnit.SECONDS);
+			
+		}
+	@Test(priority=1)
+
+	public void login()
+		{
+			WebElement username=driver.findElement(By.name("txtUsername"));
+			username.sendKeys("Admin");
+			WebElement password=driver.findElement(By.name("txtPassword"));
+			password.sendKeys("admin123");
+			WebElement Login=driver.findElement(By.name("Submit"));
+			Login.click();
+		}
+	@AfterTest
+	public void driverclose()
+		{
+			driver.close();	
+		}
+
+	}
+xml page---
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testngintoxml.Converttestngintoxml"/>
+      <class name="testngintoxml.Check"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

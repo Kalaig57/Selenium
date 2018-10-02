@@ -1,0 +1,102 @@
+Parameter -testng
+
+	Parameter passing in xml
+
+	In xml itself we give the input not in program level for example if we change the user name & password etc we change
+ it in XML itself not change in Java program
+--------------------------------------------------------------------------------------------------
+Keyword:
+
+IN PROGRAM
+	@Test(priority=1)
+	@Parameters({"un","up"})
+	public void login(String uname,String upassword )
+		{
+			WebElement username=driver.findElement(By.name("txtUsername"));
+			username.sendKeys(uname);
+			WebElement password=driver.findElement(By.name("txtPassword"));
+			password.sendKeys(upassword);
+			WebElement Login=driver.findElement(By.name("Submit"));
+			Login.click();
+		}
+
+IN xml
+	 <parameter name="un" value="Admin"/>
+    <parameter name="up" value="admin123"/>
+    <classes>
+
+PARAMETER SHOULD PASS IN BEFORE CLASSES
+
+-----------------------------------------------------------------------------------------------
+PROGRAM
+
+package sss;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class Dasasa {
+	WebDriver driver;
+	@BeforeTest
+	public void prerequsite()
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+			driver=new ChromeDriver();
+			driver.get("https://opensource-demo.orangehrmlive.com/");
+			driver.manage().timeouts().implicitlyWait(270,TimeUnit.SECONDS);
+			
+		}
+	@Test(priority=1)
+	@Parameters({"un","up"})
+	public void login(String uname,String upassword )
+		{
+			WebElement username=driver.findElement(By.name("txtUsername"));
+			username.sendKeys(uname);
+			WebElement password=driver.findElement(By.name("txtPassword"));
+			password.sendKeys(upassword);
+			WebElement Login=driver.findElement(By.name("Submit"));
+			Login.click();
+		}
+	@AfterTest
+	public void driverclose()
+		{
+			driver.close();	
+		}
+
+	}
+---------------------------------------------------------------------------------OUTPUT---------------------------------------
+
+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+  <parameter name="un" value="Admin"/>
+    <parameter name="up" value="admin123"/>
+    <classes>
+      <class name="sss.Dasasa"/>
+    </classes>
+  </test> <!-- Test -->
+   <test thread-count="5" name="Test1">
+  <parameter name="un" value="admin"/>
+    <parameter name="up" value="admin123"/>
+    <classes>
+      <class name="sss.Dasasa"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
+

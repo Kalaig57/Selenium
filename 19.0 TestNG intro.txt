@@ -1,0 +1,158 @@
+Test NG:Text next Generation----Without main Class it work
+
+Content
+	parameter
+	xml
+	Data provider
+	Screen Shot
+
+
+UnitTesting Tool:
+
+c-cunit
+c#=Nunit
+python-pyunit
+java-junit advance Test NG
+ Junit having 3 Annotations
+ TestNG having 9 Annotations
+.net=dotunit
+
+
+Reports:----
+
+
+Refresh project->test out displayed-->emailalble report html->right click->open with->web browser
+
+Annotations
+ 	without mainclass
+	program con into test frame	
+JUnit Annotations
+@Test
+@Before
+@after
+
+	
+TestNG
+@BeforeSuite
+@BeforeTest
+@BeforeClass
+@BeforeMethod
+@Test
+@AfterMethod
+@BeforeMethod
+@Test
+@AfterMethod
+@AfterClass
+@AfterTest
+@AfterSuite
+
+pROGRAM----
+public class Asadd {
+	@Test(priority=1)
+	public void mi()
+	{
+	System.out.println("This is my 1st Test case:pre requisit");
+	}
+	@BeforeTest
+	public void m1i()
+	{
+		System.out.println("This is my 2nd Test case");
+	}
+	@AfterTest
+	public void mi2()
+	{
+		System.out.println("This is my 3rd Test case");
+	}
+	@BeforeClass
+	public void m3i()
+	{
+		System.out.println("This is my 4th Test case");
+	}
+	@AfterClass
+	public void mi4()
+	{
+		System.out.println("This is my 5th Test case");
+	}
+	@Test(enabled=false)
+	public void m2()
+	{
+		System.out.println("This is my 6th Test case");
+	}
+	@BeforeSuite
+	public void mi6()
+	{
+		System.out.println("This is my 7th Test case");
+	}
+	@AfterSuite
+	public void m7i()
+	{
+		System.out.println("This is my 8th Test case");
+	}
+	@BeforeMethod
+	public void mi8()
+	{
+		System.out.println("This is my 9th Test case ");
+	}
+	@AfterMethod
+	public void m9i()
+	{
+		System.out.println("This is my 10th Test case ");
+	}
+
+
+Drawback-----------------
+Alphately run the test case
+its stopped by "put Priority in Test" 
+
+@Test(priority=2)
+
+
+Example for Test Case using TestNG---------------------------
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Tng2 {
+	WebDriver driv1;
+
+	@BeforeTest
+	public void setup()
+	{
+		driv1=new FirefoxDriver();
+		driv1.get("http://newtours.demoaut.com/");
+		driv1.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		
+	}
+	@Test
+	public void login() 
+	{
+		WebElement ff=driv1.findElement(By.name("userName"));
+		ff.sendKeys("123");
+		WebElement fff=driv1.findElement(By.name("password"));
+		fff.sendKeys("123");
+		WebElement ffff=driv1.findElement(By.name("login"));
+		ffff.click();
+		
+	}
+	@Test
+	public void logout()
+	{
+		WebElement zttttt= driv1.findElement(By.linkText("SIGN-OFF"));
+		zttttt.click();
+	}
+	@AfterTest
+	public void close()
+	{
+		driv1.close();
+	}
+	
+	}
+
+

@@ -1,0 +1,32 @@
+Alert :message hangling
+
+Syntax: 
+	Alert fg=df.switchTo().alert();
+	String er=df.switchTo().alert().getText();
+	System.out.println(er);
+	fg.accept();
+
+package alert;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Getalertmsg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+	WebDriver df=new ChromeDriver();
+	df.get("http://demo.guru99.com/v4/");
+	WebElement gh=df.findElement(By.name("btnLogin"));
+	gh.click();
+	Alert fg=df.switchTo().alert();
+	String er=df.switchTo().alert().getText();
+	System.out.println(er);
+	fg.accept();
+	}
+
+}

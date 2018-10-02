@@ -1,0 +1,49 @@
+Window Handling
+	If some unwanted popup are comming while opening a  link (window based like tnstc)
+	for that we close to use Windows handling
+
+Syntax:
+		String fg=fr.getWindowHandle();
+		
+		Set<String>Aee=fr.getWindowHandles();
+
+
+Note:	Handle used for Parent Window
+	for popup window "n number window in main window" at th time we use handles
+	Set is used for closing the popup"set means having no duplicate value, list having duplicate value"
+	for example while using set when the a window appears 2 times it restrict the a value how many timesit present
+
+Example:
+
+ 
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Windowshandling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+		WebDriver fr=new ChromeDriver();
+		fr.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		fr.get("https://www.naukri.com/");
+		String fg=fr.getWindowHandle();
+		
+		Set<String>Aee=fr.getWindowHandles();
+		for(String ee:Aee)
+		{
+			if(!ee.equals(fg))
+			{
+			fr.switchTo().window(ee);
+			fr.close();
+			}
+		}
+		
+		
+
+	}

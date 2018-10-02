@@ -1,0 +1,31 @@
+
+Drop/Filter/Select:
+  
+
+	3 methods
+		SelectByValue-within quotes
+		SelectByIndex-without quotes
+		SelectByVisibleText-within Quotes
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class webdrivercss {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver df= new FirefoxDriver();
+		df.get("http://newtours.demoaut.com/");
+		WebElement a= df.findElement(By.linkText("REGISTER"));
+		a.click();
+		WebElement z1= df.findElement(By.name("fromPort"));
+		Select z2=new Select(z1);
+		z2.selectByIndex(3);
+		WebElement zz= df.findElement(By.name("passCount"));
+		Select zzz=new Select(zz);
+		zzz.selectByValue("2");

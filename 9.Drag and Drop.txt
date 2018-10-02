@@ -1,0 +1,40 @@
+Drag and Drop:  
+
+Syntax:
+
+WebElement tgga =gh.findElement(By.id("droppableview"));
+		Actions as=new Actions(gh);
+		as.dragAndDrop(tgg, tgga).build().perform();
+		as.dragAndDropBy(tgg, -200,200).build().perform();
+
+
+
+package Switch;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Drop {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+		WebDriver gh=new ChromeDriver();
+		gh.get("https://demoqa.com/");
+		
+		WebElement tg =gh.findElement(By.linkText("Droppable"));
+
+		tg.click();
+		Thread.sleep(2000);
+		WebElement tgg =gh.findElement(By.xpath("//div[@id='draggableview']"));
+		WebElement tgga =gh.findElement(By.id("droppableview"));
+		Actions as=new Actions(gh);
+		as.dragAndDrop(tgg, tgga).build().perform();
+		as.dragAndDropBy(tgg, -200,200).build().perform();
+
+	}
+
+}

@@ -1,0 +1,60 @@
+
+File Upload:----
+ 
+2 methods
+	Robot---Action all Keyboad Keys
+	Auto IT
+Syntax
+	StringSelection afg=new StringSelection("C:\\Users\\Mypc\\Desktop\\th.jpg");
+ 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(afg, null);
+
+Robot Syntax
+	Robot ss=new Robot();
+ 	ss.keyPress(KeyEvent.VK_CONTROL);
+ 	ss.keyPress(KeyEvent.VK_V);
+ 	ss.keyRelease(KeyEvent.VK_V);
+ 	ss.keyRelease(KeyEvent.VK_CONTROL);
+ 	Thread.sleep(2000);
+ 	ss.keyPress(KeyEvent.VK_ENTER);
+ 	ss.keyRelease(KeyEvent.VK_ENTER);
+
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Fileupload {
+
+	public static void main(String[] args) throws AWTException, InterruptedException {
+		// TODO Auto-generated method stub
+ WebDriver gh=new FirefoxDriver();
+ gh.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+ 
+ gh.get("http://demo.automationtesting.in");
+ WebElement rt=gh.findElement(By.xpath("//input[@id='email']"));
+ rt.sendKeys("xyz@gmail.com");
+ WebElement rtt=gh.findElement(By.id("enterimg"));
+ rtt.click();
+ WebElement rst=gh.findElement(By.xpath("//input[@id='imagesrc']"));
+ rst.click();
+ StringSelection afg=new StringSelection("C:\\Users\\Mypc\\Desktop\\th.jpg");
+ Toolkit.getDefaultToolkit().getSystemClipboard().setContents(afg, null);
+ Robot ss=new Robot();
+ ss.keyPress(KeyEvent.VK_CONTROL);
+ ss.keyPress(KeyEvent.VK_V);
+ ss.keyRelease(KeyEvent.VK_V);
+ ss.keyRelease(KeyEvent.VK_CONTROL);
+ Thread.sleep(2000);
+ ss.keyPress(KeyEvent.VK_ENTER);
+ ss.keyRelease(KeyEvent.VK_ENTER);
+}
+
+}

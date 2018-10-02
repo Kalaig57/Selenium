@@ -1,0 +1,42 @@
+---Mouse Pointer Program-----Syntax-----
+WebElement yt= jj.findElement(By.linkText("Configuration"));
+		Actions es=new Actions(jj);
+		es.moveToElement(yt).build().perform();
+-----------------------------
+package task;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Program1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver jj=new FirefoxDriver();
+		jj.get("https://opensource-demo.orangehrmlive.com/");
+		Thread.sleep(2000);
+		WebElement er=jj.findElement(By.name("txtUsername"));
+		er.sendKeys("Admin");
+		WebElement eh=jj.findElement(By.name("txtPassword"));
+		eh.sendKeys("admin123");
+		WebElement ee=jj.findElement(By.id("btnLogin"));
+		ee.click();
+		Thread.sleep(4000);
+		WebElement rt= jj.findElement(By.id("menu_pim_viewPimModule"));
+		Actions df=new Actions(jj);
+		df.moveToElement(rt).build().perform();
+		Thread.sleep(2000);
+		WebElement yt= jj.findElement(By.linkText("Configuration"));
+		Actions es=new Actions(jj);
+		es.moveToElement(yt).build().perform();
+		WebElement ye= jj.findElement(By.linkText("Data Import"));
+		Actions gy=new Actions(jj);
+		gy.moveToElement(ye).build().perform();
+		
+		
+		}
+
+}

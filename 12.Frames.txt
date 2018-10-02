@@ -1,0 +1,88 @@
+Frames---
+
+Element 3 we take in frames
+	Name
+	ID
+	Index	
+
+Syntax:          WebDriver jgh=new ChromeDriver();
+		jgh.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		jgh.get("file:///C:/Users/Mypc/Desktop/Selinium%20Class%20notes/kalai.html");
+Syntax:          jgh.switchTo().frame(index);
+ 		jgh.switchTo().frame(ID or name);
+		jgh.switchTo().frame(webElement);
+
+
+
+Example----:
+
+package locator;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class Tast12 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+		WebDriver jgh=new ChromeDriver();
+		jgh.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+		jgh.get("file:///C:/Users/Mypc/Desktop/Selinium%20Class%20notes/kalai.html");
+		jgh.switchTo().frame(0);//index
+		WebElement fg=jgh.findElement(By.linkText("Registration"));
+		fg.click();
+		List<WebElement>ds=jgh.findElements(By.xpath("//input[@type='radio']"));
+		for(WebElement ft:ds)
+		{
+			String Va=ft.getAttribute("value");
+			System.out.println(Va);
+			if(Va.equalsIgnoreCase("married"))
+			{
+				ft.click();
+				break;
+			}
+		}
+		List<WebElement>dss=jgh.findElements(By.xpath("//input[@type='checkbox']"));
+		for(WebElement ft:dss)
+		{
+			String Vasz=ft.getAttribute("value");
+			System.out.println(Vasz);
+			if(Vasz.equalsIgnoreCase("cricket ")||Vasz.equalsIgnoreCase("reading"))
+			{
+				ft.click();
+				
+			}
+		}
+		jgh.switchTo().defaultContent();
+		jgh.switchTo().frame("tour");//name
+		WebElement a= jgh.findElement(By.linkText("REGISTER"));
+		a.click();
+		WebElement aa= jgh.findElement(By.name("firstName"));
+		aa.sendKeys("Kalaimagal");
+		WebElement b= jgh.findElement(By.name("lastName"));
+		b.sendKeys("Govindaraj");
+		WebElement c= jgh.findElement(By.xpath("//input[@name='phone']"));
+		c.sendKeys("9789565332");
+		WebElement d= jgh.findElement(By.xpath("//input[@id='userName']"));
+		d.sendKeys("Kalai.g57@gmail.com");
+
+		jgh.switchTo().defaultContent();
+		WebElement ac= jgh.findElement(By.linkText("click for facebook"));
+		ac.click();
+		jgh.navigate().back();//back to frame
+		WebElement asc= jgh.findElement(By.xpath("//iframe[@title='demoqa']"));
+		jgh.switchTo().frame(asc);//web Element
+		WebElement fzg=jgh.findElement(By.linkText("Registration"));
+		fzg.click();
+		
+		
+	}
+
+}

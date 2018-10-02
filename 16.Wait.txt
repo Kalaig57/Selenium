@@ -1,0 +1,59 @@
+Wait
+	Two types
+	ImplicityWait--it wait for Overall page 
+	ExplicityWait-- it wait for Particular module
+
+Syntax:
+Implicity Wait:
+
+driver.timeouts().manage().implicitlyWait(90,TimeUnit.SECONDS)
+
+ExplicityWait:
+
+WebDriverWait driver=new WebDriverWait(jj,180);
+driver.until(ExpectedConditions.visibilityof(webelement object)
+
+Example---
+
+
+package scroll;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Wait {//implicit & explicit wait-selinium command
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver jj=new FirefoxDriver();
+		WebDriverWait we=new WebDriverWait(jj,180);
+		jj.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);//page load not for particular element
+		jj.get("https://opensource-demo.orangehrmlive.com/");
+		WebElement er=jj.findElement(By.name("txtUsername"));
+		er.sendKeys("Admin");
+		WebElement eh=jj.findElement(By.name("txtPassword"));
+		eh.sendKeys("admin123");
+		WebElement ee=jj.findElement(By.id("btnLogin"));
+		we.until(ExpectedConditions.visibilityOf(ee));
+		ee.click();
+		WebElement rt= jj.findElement(By.id("menu_pim_viewPimModule"));
+		Actions df=new Actions(jj);
+		df.moveToElement(rt).build().perform();
+		WebElement yt= jj.findElement(By.linkText("Configuration"));
+		Actions es=new Actions(jj);
+		es.moveToElement(yt).build().perform();
+		WebElement ye= jj.findElement(By.linkText("Data Import"));
+		Actions gy=new Actions(jj);
+		gy.moveToElement(ye).build().perform();
+		
+	}
+
+}
+

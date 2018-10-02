@@ -1,0 +1,28 @@
+Calender
+	its also known as datepicker
+	Select command is used here
+
+	List is used her as a webelement for finding more Elements
+
+Syntax:
+
+		WebElement fasdt= gh.findElement(By.xpath("//input[@id='job_joined_date']"));
+		we.until(ExpectedConditions.visibilityOf(fasdt));
+		fasdt.click();
+		WebElement fast= gh.findElement(By.xpath("//select[@class='ui-datepicker-month']"));
+		Select hjg=new Select(fast);
+		hjg.selectByValue("10");
+		WebElement fst= gh.findElement(By.xpath("//select[@class='ui-datepicker-year']"));
+		Select hg=new Select(fst);
+		hg.selectByValue("2014");
+		List<WebElement>wt=gh.findElements(By.xpath(".//*[@id='ui-datepicker-div']/table/tbody/tr[3]/td[1]/a"));
+		for(WebElement gggh:wt)
+		{
+		String ghh=gggh.getText();
+		System.out.println(ghh);
+		if(ghh.equalsIgnoreCase("10"))
+		{
+			gggh.click();
+			
+		}
+		}

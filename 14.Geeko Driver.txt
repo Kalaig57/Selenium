@@ -1,0 +1,36 @@
+Geeko-Driver
+	Its used for updated Version Firefox
+
+	upto selinium 2- only works in 47.0.1
+
+	updatd Version not working so we switch to selinium 3 for example fireffox version 61 means we use geeko driver
+
+	fire fox driver- Geeko Driver
+
+
+Example for GeekoDriver 
+
+
+
+public class Windowshandling {
+
+	public static void main(String[] args) {
+
+System.setProperty("webdriver.Geeko.Driver","Geeko Driver Location eg C:\\") 
+WebDriver Kalai=new GeekoDriver();
+kalai.manage().timeOuts().implicitlyWait(90,TimeUnit.SECONDS)
+Kalai.get("https://www.naukri.com/");
+gh.get("http://demo.automationtesting.in");
+WebElement g =gh.findElement(By.id("email"));
+g.sendKeys("Kalai.g57@gmail.com");
+WebElement gs =gh.findElement(By.id("enterimg"));
+gs.click();
+WebElement sgs =gh.findElement(By.linkText("SwitchTo"));
+sgs.click();
+WebElement sgss =gh.findElement(By.linkText("Windows"));
+sgss.click();
+	WebElement sgsss =gh.findElement(By.linkText("Open New Seperate Windows"));
+sgsss.click();
+WebElement ssgsss =gh.findElement(By.xpath("//button[@onclick='newwindow()']"));
+ssgsss.click();
+	

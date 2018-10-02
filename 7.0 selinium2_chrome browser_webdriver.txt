@@ -1,0 +1,35 @@
+chrome browser wed driver---
+
+
+downlod chrome driver for latest verion--https://chromedriver.storage.googleapis.com/index.html?path=2.41/
+
+Program for chromebrowser
+
+
+
+package fgf;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+public class fcf {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+			System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+			WebDriver fr=new ChromeDriver();
+			fr.get("http://demo.guru99.com/v4/");
+			WebElement s=fr.findElement(By.name("uid"));
+			s.sendKeys("sss");
+			WebElement ss=fr.findElement(By.name("password"));
+			ss.sendKeys("sss");
+			WebElement sks=fr.findElement(By.name("btnLogin"));
+			sks.click();
+					
+		}
+
+	}

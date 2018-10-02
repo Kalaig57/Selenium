@@ -1,0 +1,110 @@
+Reports:
+ Reports type-testng report,extents reports
+
+here we discuss about extents report
+
+Keyword:
+	
+	ExtentReports
+	ExtentTest
+	WebDriver
+	Logger logOBJNAME =Logger.getLogger(mainclassname.class);
+
+Syntax:
+	
+	ExtentReport objname=new ExtentReport(path);
+	logger=objname.startTest("automation test report");
+	propertyConfigurator.configure(put log4j file path);
+	driver declaration ;
+	logger.log(LogStatus.Info("Launching in Chrome Driver");
+	
+	
+	
+
+
+Program:
+
+package testsuite;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.log4testng.Logger;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import browser.Choosebrowser;
+
+public class Testaseregister {
+	ExtentReports reports;
+	ExtentTest logger;
+	WebDriver driver5;
+	Logger log =Logger.getLogger(Testaseregister.class);
+	
+	@BeforeTest
+		public void setup()
+		{
+			reports =new ExtentReports("D:\\Screenshot\\Sucess.html");
+			logger=reports.startTest("Automation sample reports");
+			PropertyConfigurator.configure("C:\\Users\\Mypc\\workspace\\POMpageobjectmodel\\src\\resources\\log4j.properties");
+			// TODO Auto-generated method stub
+			driver5=Choosebrowser.getDriver("Chrome","http://newtours.demoaut.com/");
+			logger.log(LogStatus.INFO, "Launching in Chrome Driver");
+		}
+		
+	@Test(priority=1)
+	public void Register()
+	{
+		Register kalai=new Register(driver5);
+		kalai.regis();
+
+		kalai.ContactInformation("AAAAAAA","BBBBBBB","1111111111","abc@gmail.com");
+		kalai.MailingInformation("56sdsdsdsVVdas","chennai","Tamilnadu","600087");
+		kalai.UserInformation("123","123","123");
+		log.info("**********Regiter Sucessfull************");
+	}
+
+	@AfterTest
+	public void drivercloe()
+	{
+
+		driver5.close();
+			
+	}
+	@AfterMethod
+	public void screenshot(ITestResult res) throws IOException
+	{
+		if(res.isSuccess())
+		{
+			String fn="D:\\Screenshot\\Sucess.png"+res.getName()+".png";
+			File objnm1=((TakesScreenshot)driver5).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(objnm1, new File(fn));
+			String fpath=	logger.addScreenCapture(fn);
+			logger.log(LogStatus.PASS, "Success" +res.getName(),fpath);
+		}
+			else
+			{
+				String fn="D:\\Screenshot\\Fail.png"+res.getName()+".png";
+				File src=((TakesScreenshot)driver5).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(src, new File(fn));
+				String fpath=	logger.addScreenCapture(fn);
+				logger.log(LogStatus.FAIL, "Failed test case" +res.getName(),fpath);
+			}
+			reports.endTest(logger);
+			reports.flush();
+	}		
+
+}
+

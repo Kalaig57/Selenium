@@ -1,0 +1,78 @@
+Exceptional Handling:----
+
+	Exceptional Handling is means Known Error.this error can be a sloved its shown inconsole part of eclipse
+
+	Try and catch we use in exception it display the catch output
+
+	If we use finally keyshows its also the printed quotes
+	
+	for More catch we use only one try
+
+Exception example
+
+	Latest version firefox unreached bro 
+	Element not Visible
+	Invalid slector
+	Timeout exception
+	No frame
+	No alert exception
+	No window exception
+	Stale Element exception
+
+Example for Single catch:-----
+
+public class ExceptionalHandling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try
+		{
+		c=a/b;
+		}
+		/*catch(ArithmeticException e)
+		{
+		System.out.println("This is Exception Error Please change the Value");
+		}/*
+		//System.out.println("Success");
+		/*catch(NosuchElement e)
+		{
+			System.out.println("");
+		}*/
+
+Example for Multiple Catch :---
+
+
+public class ExceptionalHandling {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		int a=1,b=0;
+		int c;
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try
+		{
+		c=a/b;
+		}
+		/*catch(ArithmeticException e)
+		{
+		System.out.println("This is Exception Error Please change the Value");
+		}/*
+		//System.out.println("Success");
+		/*catch(NosuchElement e)
+		{
+			System.out.println("");
+		}*/
+		finally
+		{
+			System.out.println("Success");
+		}
+	}
+}

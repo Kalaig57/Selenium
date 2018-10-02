@@ -1,0 +1,32 @@
+Selinium
+
+web based app
+Selinium Component
+
+
+Selinium Core
+Javascripttestreunner
+Selinium grid
+
+hub-----node---- execute parallel brower
+
+
+
+
+Selinium IDE
+Firefox---Addon----record and play-----conditional statement not used
+
+
+
+web Driver:
+
+Selinium RC+Selinum web driver=Web driver 2
+
+Communicate o& control the web brow using driver
+Selinuim  command-selenase
+
+
+
+
+
+

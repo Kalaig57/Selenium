@@ -1,0 +1,198 @@
+Framework:
+
+keyword driven----Action 
+data driven----Excel read and Write
+hybrid driven---keyword+data
+behaviour driven--
+
+
+Excel Handling Read:
+
+Its used for read the data in Excel by using java program
+
+Keywords:
+
+File
+FileInputStream
+XSSFWorkbook----Xlsx file
+XSSFSheet
+Row and Cell
+
+Syntax
+
+File obj=new File("path of excel");
+FileInputStream objname=new FileInputStream("obj");
+XSSFWorkbook objname1=new XSSFWorkbook("objname");
+XSSFSheet objname2=new XSSFSheet("put Excell SheetNo");
+String data =objname2.getRow(0).getCell(0).getStringCellValue(0);    //for gettig single cell
+System .Out.println(data); 
+for(i=0;i<objname2.getLastRowNum();i++)				//for getting whole data
+{
+Row obj3=objname2.getRow(i);
+for(j=0;j<objname2.getLastCellNum();j++)
+{
+Strig obj4=obj3.getcell(j).getStringCellvalue();
+Sytem.out.println(obj4)
+} 
+
+Program for whole data:
+------------------------
+
+
+package excel;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excelread {
+
+public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+File excel=new File("C:\\Users\\Mypc\\Desktop\\ExcelRead.xlsx");
+FileInputStream fis=new FileInputStream(excel);
+XSSFWorkbook wb=new XSSFWorkbook(fis);
+XSSFSheet gh=wb.getSheet("Sheet1");
+String data=gh.getRow(0).getCell(0).getStringCellValue();
+
+System.out.println(data);
+for(int i=0;i<=gh.getLastRowNum();i++)
+{
+	Row r=gh.getRow(i);
+	for(int j=0;j<r.getLastCellNum();j++)
+	{
+		String v=r.getCell(j).getStringCellValue();
+		System.out.println(v);
+	}
+}
+}
+
+}
+
+-------------------------------------------------------------Making Common file for write using methods and Constuctor-------------------------------------------------------------------------
+
+Excel write----its used for write the data in excel
+
+Keywords:
+
+File
+FileInputStream
+XSSFWorkbook
+XSSFSheet
+XSSFRow
+XSSFCell
+String objname;
+
+Syntax:
+
+Class name
+
+	Constructor
+		
+		Method
+
+
+Example:--
+
+	package excel;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Excelwright {   //class
+
+File Excel;
+FileInputStream fis;
+FileOutputStream fis1;
+XSSFWorkbook wb;
+XSSFSheet sh;
+XSSFRow ro;
+XSSFCell cell;
+String xfilepath;
+			
+	public Excelwright (String File)   //Constructor
+{
+
+this.xfilpath=File;
+		Excel=new File(xfilepath);
+		fis=new FileInputStream(Excel);
+		wb=new XSSFWorkbook(fis);
+		fis.close();
+}
+
+public void setup(String Sheetname,int row_no,String col_name,String Value)			//method
+{
+	col_no=-1;
+	sh=new XSSFSheet(Sheetname);
+	ro=sh.getRow(0);
+	for(i=0;i<ro.getlastCellValueNum;i++)
+{
+if(ro.getCell(0).getStringCellValue(0).trim().equals(col_name))
+	{
+
+	col_no=i;
+
+	}
+
+
+ro=sh.getRow(row_no-1);
+	if(ro==null)
+	{
+		ro=sh.createRow(row_no-1);
+	}
+
+cell=ro.getCell(col_no);
+	if(cell==null)
+	{
+		cell=ro.createCell(col_no);
+	}
+cell.setCellValue(Value);
+	try {
+		fis1=new FileOutputStream(xfilepath);
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		wb.write(fis1);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	try {
+		fis1.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+}
+--------Call by main method----------------------------------------------------
+ackage excel;
+
+import java.io.IOException;
+
+public class write {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Excelwright fhg=new Excelwright("C:\\Users\\Mypc\\Desktop\\ExcelRead.xlsx");
+		fhg.SetData("Sheet2", 2, "Result", "Pass");
+	}
+
+}
+
+==========output is displayed in excel sheet 2==========After run the program u manually open the excel sheet 
+
+

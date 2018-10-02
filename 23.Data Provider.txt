@@ -1,0 +1,63 @@
+Data provider:
+
+
+package classDataprovidr;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Example
+{
+	WebDriver driver;
+	@Test(dataProvider="credentials")
+public void preprocessing(String username,String password, String FirstNme,String LastName, String Phone, String UserName)
+	{
+		
+		driver=new FirefoxDriver();
+		driver.get("http://newtours.demoaut.com/");
+		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+	
+		WebElement user=driver.findElement(By.name("userName"));
+		user.sendKeys(username);
+		WebElement pass=driver.findElement(By.name("password"));
+		pass.sendKeys(password);
+		driver.findElement(By.name("login")).click();
+		driver.findElement(By.linkText("SIG-OFF")).click();
+		driver.findElement(By.linkText("REGISTER")).click();
+		driver.findElement(By.name("firstName")).sendKeys(FirstNme);
+		driver.findElement(By.name("lastName")).sendKeys(LastName);
+		driver.findElement(By.name("phone")).sendKeys(Phone);
+		driver.findElement(By.id("userName")).sendKeys(UserName);
+		driver.close();
+}
+	@DataProvider(name="credentials")
+	public Object[][] data()
+	{
+		return new Object[][]{
+				
+			{"123","123","abcgd","ghjkiu","8979676554","acg@gmail.com"},
+			{"111","111","hjhjhj","gadgha","677878889","hshas@gmail.com"},
+			{"121","121","gadgdadha","sfdsf","6778478889","hshffas@gmail.com"}
+		};
+	}
+	@AfterMethod
+		public void screenshot() throws IOException
+		{
+			File printscreen=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(printscreen,new File("D://Screenshot//error.png"));
+		}
+	}
+				      
+		

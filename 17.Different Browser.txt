@@ -1,0 +1,12 @@
+Different Browser
+
+	Safari
+	IDE
+	Opera etc
+
+
+Use this link for getting Driver for various browser
+
+https://www.seleniumhq.org/download/---Third Party Browser Driver
+
+Click Latest---- according to system bit download that bit zip file

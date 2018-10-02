@@ -1,0 +1,42 @@
+Scrolling:
+  3 Types
+	By
+	To
+	IntoView 
+
+
+Explanation:
+
+
+Syntax : WebElement g =df.findElement(By.linkText("Sortable"));
+	((JavascriptExecutor)df).executeScript("arguments[0].scrollIntoView();",g);
+
+
+	Its scroll from particular data "sortable" to bottom
+
+
+
+
+package scroll;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Df {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver df= new FirefoxDriver();
+		df.get("https://demoqa.com/");
+		((JavascriptExecutor)df).executeScript("window.scrollBy(0,500)");
+		((JavascriptExecutor)df).executeScript("window.scrollBy(0,-500)");
+		((JavascriptExecutor)df).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		WebElement g =df.findElement(By.linkText("Sortable"));
+		((JavascriptExecutor)df).executeScript("arguments[0].scrollIntoView();",g);
+		
+	}
+
+}

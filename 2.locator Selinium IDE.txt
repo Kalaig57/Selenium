@@ -1,0 +1,36 @@
+-----locator-----
+1)	id
+2)	name
+3)	link text
+4)	xpath
+5)	Css
+
+xpath-xml path ----absolute,relative xpath 2 types
+fire  bug(add on)
+fire path(add on)
+
+----Absolute----
+html/body/div[1]/div[2]/div/div/div/div/div[2]/form/table/tbody/tr[2]/td[1]/input
+"Only tag name present"
+
+--relative Attribute---
+//tagname[@attribute='val']-------single atrributes
+//input[@class='inputtext'][@tabindex='2']----------multiple attributes
+//input[@class='inputtext' or @tabindex='2']-------logical or insted of square we logical operator
+//input[@class='inputtext' and @tabindex='2']-------and operation
+//input[contains(@id,'mai')]---------contains used for ehen value element change for execution "we take constant value from values"
+//input[@id='pass']//following::input[1] finding path followed by password"log in"
+//input[@id='pass']//preceding::input[1]  finding path preceding by password"First Name"
+//input[@start_with='value']
+
+Css:cascading style sheet
+
+1	id 	"description  #value only"  eg #pass
+2	class 	"description dot classvalue"   eg   .inputtext
+3	single attribute    "description tagname[attribute='val']"   eg input[id='email']
+4	Multiple attribute    "description tagname[attribute='val'end is not used][attribute='val']"   eg input[id='email'][class='inputtext']
+4	contains  "description tagname[attribute*='val]   eg input[id*='ma']
+5	starts-with "description tagname[attribute^='val]   eg input[id^='e']
+6	end with  "description tagname[attribute$='val]   eg input[id$='l']
+
+
