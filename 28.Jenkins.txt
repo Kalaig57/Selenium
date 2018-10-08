@@ -1,0 +1,24 @@
+Jenkins
+	Jenkins is build tool plugins
+	Jenkins used for run the plugings 
+	like maven,git etc
+
+	maven file having pom.xml file
+	when u use jenkins use only pom.xml files not need the program
+	its used for storage purpose here we the report also.
+For example:
+	after running the program using maven buildtool
+	we use the jenkings for sharing our files by using pom.xml
+	its acts as a integration server
+
+jenkins installation process:
+
+
+google search jenkins download-- windows ---setup wizard---adminpassword enter its in path
+--signup withjenkins--congigure---dashboad showing
+--manage jenkins ---goal setupfor tool---set git path save--manage plugins--available--maven installation--save and finish-- 
+--click jenkins configure--- goal setup--put pom.xml file in bulid tab--- how many times we want run (schedule) in build Trigger--build periodically H/5 **** (hour, min,dom,dow)
+build now ---after build now its shows processsing data-- after process sucess click it it shows all details like reports
+
+In jenkins we use only pom.xml file and git,pipeline dropbox tc
+In jenkings we no need the program language its use for connecting the plugins through maven plugins we conneted by using pom.xml file .
