@@ -95,4 +95,12 @@ remote:
 To https://github.com/Kalaig57/Selenium.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
+**********************************************************
+for deleting file in directory use this comments
+
+git rm -r --cached foldername or text file
+git commit -m "some text"
+git push origin master
+
+
 
